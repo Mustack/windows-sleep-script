@@ -112,7 +112,7 @@ switch ($global:buttonPressed) {
         rundll32.exe powrprof.dll,SetSuspendState 0,1,0
     }
     "timeout" {
-        shutdown /s /t 0
+        rundll32.exe powrprof.dll,SetSuspendState 0,1,0
     }
     default {
         # Cancel → do nothing
