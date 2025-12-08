@@ -101,18 +101,22 @@ $null = $window.ShowDialog()
 
 switch ($global:buttonPressed) {
     "sleep" {
-        rundll32.exe powrprof.dll,SetSuspendState 0,1,0
+        Add-Type -Assembly System.Windows.Forms
+        [System.Windows.Forms.Application]::SetSuspendState("Suspend", $false, $false)
     }
     "snooze1" {
         Start-Sleep -Seconds (60 * 60)
-        rundll32.exe powrprof.dll,SetSuspendState 0,1,0
+        Add-Type -Assembly System.Windows.Forms
+        [System.Windows.Forms.Application]::SetSuspendState("Suspend", $false, $false)
     }
     "snooze2" {
         Start-Sleep -Seconds (60 * 60 * 2)
-        rundll32.exe powrprof.dll,SetSuspendState 0,1,0
+        Add-Type -Assembly System.Windows.Forms
+        [System.Windows.Forms.Application]::SetSuspendState("Suspend", $false, $false)
     }
     "timeout" {
-        rundll32.exe powrprof.dll,SetSuspendState 0,1,0
+        Add-Type -Assembly System.Windows.Forms
+        [System.Windows.Forms.Application]::SetSuspendState("Suspend", $false, $false)
     }
     default {
         # Cancel → do nothing
